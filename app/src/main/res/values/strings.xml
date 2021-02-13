@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="http_get">get请求</string>
+    <string name="http_post">post请求</string>
 </resources>
