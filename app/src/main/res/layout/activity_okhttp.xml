@@ -3,25 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn_get"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
+            android:onClick="@{() -> ok_http.onClick_get()}"
             android:text="@string/http_get"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
 
         <Button
+            android:onClick="@{() -> ok_http.onClick_post()}"
             android:id="@+id/btn_post"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,12 +27,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+        <TextView
+            android:id="@+id/http_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
@@ -51,14 +50,22 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.27" />
 
-        <TextView
-            android:id="@+id/http_text"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="TextView"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.05" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <import type="com.example.myapplication.activity.OKHttpActivity.OnClick_HTTP" />
+
+        <variable
+            name="ok_http"
+            type="OnClick_HTTP" />
+
+
+    </data>
 </layout>
