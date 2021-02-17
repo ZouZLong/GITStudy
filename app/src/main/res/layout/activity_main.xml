@@ -9,18 +9,31 @@
         tools:context=".MainActivity">
 
         <Button
-            android:onClick="@{() -> onclick_main.onClick_Okhttp()}"
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="@{() -> onclick_main.onClick_Okhttp()}"
             android:text="@string/main_okhttp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> onclick_main.onClick_MemoryLeak()}"
+            android:text="@string/memoryleak"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button"
+            app:layout_constraintVertical_bias="0.011" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>
-        <import type="com.example.myapplication.MainActivity.Onclick_Main"/>
+
+        <import type="com.example.myapplication.MainActivity.Onclick_Main" />
 
         <variable
             name="onclick_main"

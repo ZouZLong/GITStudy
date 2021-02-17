@@ -25,6 +25,9 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+/**
+ * 网络请求的类
+ */
 public class OKHttpActivity extends BaseActivity {
     //https://github.com/hongyangAndroid/okhttputils
     //okhttputils 封装好的okhttp类  但是已经停止维护

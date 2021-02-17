@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.myapplication.activity.MemoryLeakActivity;
 import com.example.myapplication.activity.OKHttpActivity;
 import com.example.myapplication.databinding.ActivityMainBinding;
 
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
         //跳转到请求网络的页面
         public void onClick_Okhttp() {
             Intent intent = new Intent(MainActivity.this, OKHttpActivity.class);
+            startActivity(intent);
+        }
+        //跳转到请求网络的页面
+        public void onClick_MemoryLeak() {
+            Intent intent = new Intent(MainActivity.this, MemoryLeakActivity.class);
             startActivity(intent);
         }
     }
