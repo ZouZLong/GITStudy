@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.myapplication.activity.MemoryLeakActivity;
 import com.example.myapplication.activity.OKHttpActivity;
 import com.example.myapplication.databinding.ActivityMainBinding;
+import com.example.myapplication.service.ReceptionService;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,10 +32,22 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, OKHttpActivity.class);
             startActivity(intent);
         }
-        //跳转到请求网络的页面
+
+        //跳转到内存泄漏的页面
         public void onClick_MemoryLeak() {
             Intent intent = new Intent(MainActivity.this, MemoryLeakActivity.class);
             startActivity(intent);
+        }
+
+        //启动一个前台服务
+        public void onClick_ReceptionService() {
+            Intent intent = new Intent(MainActivity.this, ReceptionService.class);
+            if (Build.VERSION.SDK_INT >= 26) {
+                startForegroundService(intent);
+            } else {
+                startService(intent);
+            }
+
         }
     }
 
