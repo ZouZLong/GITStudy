@@ -41,8 +41,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
 
-    //OKhttp
+    //OKhttp3 网络请求
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
 
+    //leakcanary 检测内存泄露
+    implementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 }
