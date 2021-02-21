@@ -5,4 +5,5 @@
     <string name="main_okhttp">跳转到OKhttp页面</string>
     <string name="memoryleak_singlecase">单例导致的内存泄露</string>
     <string name="memoryleak">内存泄露Demo</string>
+    <string name="reception_service">启动一个前台服务</string>
 </resources>

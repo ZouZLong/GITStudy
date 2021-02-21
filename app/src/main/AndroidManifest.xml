@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
     <application
@@ -8,7 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
+        android:theme="@style/Theme.MyApplication"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,10 +22,23 @@
 
         <activity android:name=".activity.OKHttpActivity" />
         <activity android:name=".activity.MemoryLeakActivity" />
+
+        <!--由于Android8.0以后不能使用后台服务，
+        使用Service需要使用ContextCompat.startForegroundService启动前台服务，
+        而且通知栏有Notification显示该Service正在运行，这可能会带来不好的用户体验。
+        如果还是希望使用服务在后台默默工作，通过使用服务开启子进程等等 重要1+重要2+重要3+重要4-->
+        <!--android.permission.BIND_JOB_SERVICE  //重要1 -->
+        <!-- 为防止Service被系统回收，可以尝试通过提高服务的优先级解决，1000是最高优先级，数字越小，优先级越低 -->
+        <!--设置persistent属性为true，则可使该服务免受out-of-memory killer的影响。但是这种做法一定要谨慎，系统服务太多将严重影响系统的整体运行效率-->
+        <service
+            android:name=".service.ReceptionService"
+            android:priority="1000"
+            android:persistent="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>　 <!--重要2-->
 
 </manifest>
