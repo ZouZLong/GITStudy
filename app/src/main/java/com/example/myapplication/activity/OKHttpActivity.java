@@ -72,7 +72,6 @@ public class OKHttpActivity extends BaseActivity {
         }
     }
 
-
     public class OnClick_HTTP {
 
         public void onClick_get() {
