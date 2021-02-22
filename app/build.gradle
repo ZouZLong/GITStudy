@@ -49,6 +49,8 @@ dependencies {
     //OKhttp3 网络请求
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    //okhttputils是张鸿洋(鸿神)封装的OKhttp3框架
+    implementation 'com.zhy:okhttputils:2.6.2'
 
     //greendao 框架
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库

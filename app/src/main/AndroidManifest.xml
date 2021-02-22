@@ -4,6 +4,7 @@
     package="com.example.myapplication">
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -24,9 +25,10 @@
         <activity android:name=".activity.MemoryLeakActivity" />
         <activity android:name=".activity.GreenDaoActivity" />
         <activity android:name=".activity.ServiceKeepAliveActivity" />
-        <activity android:name=".activity.KeepActivity"
+        <activity
+            android:name=".activity.KeepActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/KeepTheme"/>
+            android:theme="@style/KeepTheme" />
         <activity android:name=".activity.SpareActivity" />
 
 
@@ -39,14 +41,42 @@
         <!--设置persistent属性为true，则可使该服务免受out-of-memory killer的影响。但是这种做法一定要谨慎，系统服务太多将严重影响系统的整体运行效率-->
         <service
             android:name=".service.ReceptionService"
-            android:priority="1000"
+            android:permission="android.permission.BIND_JOB_SERVICE"
             android:persistent="true"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
+            android:priority="1000" />
     </application>
 
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- //重要2 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- ======================授权访问网络（OkHttpUtil）========================== -->
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许程序访问有关GSM网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 允许一个程序访问精良位置(如GPS)  -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 访问电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许程序读外部存储，如SD卡上读文件 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--======================授权访问网络（HttpUtil）========================== -->
+    <!--允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序访问有关GSM网络信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--允许一个程序访问精良位置(如GPS)  -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!--访问电话状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
 </manifest>
