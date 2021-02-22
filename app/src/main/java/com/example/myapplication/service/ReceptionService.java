@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.IBinder;
@@ -16,12 +17,14 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 
 import com.example.myapplication.R;
+import com.example.myapplication.broadcast.KeepReceiver;
 
 /**
  * 这是一个前台服务
  */
 public class ReceptionService extends Service {
 
+    private KeepReceiver keepReceiver;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -34,6 +37,13 @@ public class ReceptionService extends Service {
     public void onCreate() {
         super.onCreate();
         Log.e("123", "ReceptionService服务被启动");
+        keepReceiver = new KeepReceiver();
+        /* 注册屏幕唤醒时的广播 */
+        IntentFilter mScreenOnFilter = new IntentFilter("android.intent.action.SCREEN_ON");
+        registerReceiver(keepReceiver, mScreenOnFilter);
+        /* 注册机器锁屏时的广播 */
+        IntentFilter mScreenOffFilter = new IntentFilter("android.intent.action.SCREEN_OFF");
+        registerReceiver(keepReceiver, mScreenOffFilter);
     }
 
 
@@ -70,6 +80,7 @@ public class ReceptionService extends Service {
         super.onDestroy();
         Log.e("123", "ReceptionService服务被销毁");
         stopForeground(true);// 停止前台服务--参数：表示是否移除之前的通知
+        unregisterReceiver(keepReceiver);
     }
 
 
