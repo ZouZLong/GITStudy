@@ -9,7 +9,7 @@ public class DbController {
     /**
      * Helper
      */
-    private DaoMaster.DevOpenHelper mHelper;//获取Helper对象
+    private DaoMaster.DevOpenHelper mHelper;//获取Helper对象   获取数据库
     /**
      * 数据库
      */
@@ -17,10 +17,16 @@ public class DbController {
     /**
      * DaoMaster
      */
+    //DaoMaster保存数据库对象（SQLiteDatabase）并管理特定模式的Dao类。
+    // 它具有静态方法来创建表或将他们删除。
+    // 其内部类OpenHelper和DevOpenHelper是在SQLite数据库中创建模式的SQLiteOpenHelper实现。
     private DaoMaster mDaoMaster;
     /**
      * DaoSession
      */
+    //管理特定模式的所有可用Dao对象，您可以使用其中一个getter方法获取。
+    // DaoSession还为实体提供了一些通用的持久性方法，如插入，加载，更新，刷新和删除。
+    // 最后，DaoSession对象也跟踪一个身份范围。
     private DaoSession mDaoSession;
     /**
      * 上下文
