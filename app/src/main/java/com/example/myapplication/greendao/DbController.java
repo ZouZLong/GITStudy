@@ -120,7 +120,8 @@ public class DbController {
      * 按条件查询数据
      */
     public List<InfoBean> searchByWhere(String wherecluse) {
-        List<InfoBean> personInfors = (List<InfoBean>) infoBeanDao.queryBuilder().where(InfoBeanDao.Properties.Name.eq(wherecluse)).build().unique();
+        List<InfoBean> personInfors = (List<InfoBean>)
+                infoBeanDao.queryBuilder().where(InfoBeanDao.Properties.Name.eq(wherecluse)).build().unique();
         return personInfors;
     }
 

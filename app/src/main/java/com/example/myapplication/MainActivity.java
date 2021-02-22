@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.activity.MemoryLeakActivity;
 import com.example.myapplication.activity.OKHttpActivity;
+import com.example.myapplication.activity.SpareActivity;
 import com.example.myapplication.databinding.ActivityMainBinding;
 import com.example.myapplication.service.ReceptionService;
 
@@ -39,15 +40,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        //启动一个前台服务
+        //跳转到备用界面
         public void onClick_ReceptionService() {
-            Intent intent = new Intent(MainActivity.this, ReceptionService.class);
-            if (Build.VERSION.SDK_INT >= 26) {
-                startForegroundService(intent);
-            } else {
-                startService(intent);
-            }
-
+            Intent intent = new Intent(MainActivity.this, SpareActivity.class);
+            startActivity(intent);
         }
     }
 

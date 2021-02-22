@@ -27,6 +27,8 @@
         <activity android:name=".activity.KeepActivity"
             android:excludeFromRecents="true"
             android:theme="@style/KeepTheme"/>
+        <activity android:name=".activity.SpareActivity" />
+
 
         <!--由于Android8.0以后不能使用后台服务，
         使用Service需要使用ContextCompat.startForegroundService启动前台服务，

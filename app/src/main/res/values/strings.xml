@@ -7,4 +7,6 @@
     <string name="memoryleak">内存泄露Demo</string>
     <string name="reception_service">启动一个前台服务</string>
     <string name="greentdao_add">添加一条数据</string>
+    <string name="greendao">删除一条数据</string>
+    <string name="greendao_data">数据显示</string>
 </resources>

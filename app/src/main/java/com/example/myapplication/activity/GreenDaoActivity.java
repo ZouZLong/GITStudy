@@ -1,13 +1,16 @@
 package com.example.myapplication.activity;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.myapplication.BaseActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.databinding.ActivityGreendaoBinding;
 import com.example.myapplication.greendao.DbController;
 import com.example.myapplication.greendao.InfoBean;
 
@@ -16,19 +19,32 @@ import java.util.List;
 /**
  * 操作数据库的页面
  */
-public class GreenDaoActivity extends BaseActivity {
+public class GreenDaoActivity extends BaseActivity implements View.OnClickListener {
 
-    private ActivityGreendaoBinding activityGreendaoBinding;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private TextView textView;
     private DbController mDbController;
     private InfoBean infoBean1, infoBean2, infoBean3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        activityGreendaoBinding = DataBindingUtil.setContentView(this, R.layout.activity_greendao);
-        activityGreendaoBinding.setLifecycleOwner(this);
+        setContentView(R.layout.activity_greendao1);
         mDbController = DbController.getInstance(this);
+        initView();
         init();
+    }
+
+    public void initView() {
+        button1 = findViewById(R.id.button1);
+        button2=findViewById(R.id.button2);
+        button3=findViewById(R.id.button3);
+        textView = findViewById(R.id.textView);
+        button1.setOnClickListener(this);
+        button2.setOnClickListener(this);
+        button3.setOnClickListener(this);
     }
 
     public void init() {
@@ -37,14 +53,23 @@ public class GreenDaoActivity extends BaseActivity {
         infoBean3 = new InfoBean(null, "003", "欧阳娜", "女");
     }
 
-
-    public class OnClick_GreenDao {
-        public void add() {
-            //添加一条数据
-            mDbController.insertOrReplace(infoBean1);
-            mDbController.insertOrReplace(infoBean2);
-            mDbController.insertOrReplace(infoBean3);
-            showDataList();
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.button1://添加数据
+                mDbController.insertOrReplace(infoBean1);
+                mDbController.insertOrReplace(infoBean2);
+                mDbController.insertOrReplace(infoBean3);
+                showDataList();
+                break;
+            case R.id.button2://删除数据
+                mDbController.delete("王林嫣");
+                showDataList();
+                break;
+            case R.id.button3://更新数据
+                mDbController.update(infoBean1);
+                showDataList();
+                break;
         }
     }
 
@@ -59,6 +84,6 @@ public class GreenDaoActivity extends BaseActivity {
                     .append("sex:").append(personInfor.getSex())
                     .append("\n");
         }
-        activityGreendaoBinding.dataText.setText(sb.toString());
+        textView.setText(sb.toString());
     }
 }
