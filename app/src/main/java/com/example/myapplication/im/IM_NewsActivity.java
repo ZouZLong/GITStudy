@@ -23,6 +23,7 @@ public class IM_NewsActivity extends BaseActivity {
         // 初始化聊天面板
         conversationLayout.initDefault();
 
+
         // 获取 TitleBarLayout
         TitleBarLayout titleBarLayout = conversationLayout.findViewById(R.id.conversation_title);
         // 设置标题
