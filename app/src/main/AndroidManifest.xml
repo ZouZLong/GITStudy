@@ -30,6 +30,9 @@
             android:excludeFromRecents="true"
             android:theme="@style/KeepTheme" />
         <activity android:name=".activity.SpareActivity" />
+        <activity android:name=".im.IM_NewsActivity" />
+        <activity android:name=".im.IM_MailListActivity" />
+
 
 
         <!--由于Android8.0以后不能使用后台服务，

@@ -15,6 +15,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // 这里添加
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -30,6 +33,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
 }
 
 greendao {
@@ -44,6 +53,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
 
     //OKhttp3 网络请求
@@ -57,4 +67,14 @@ dependencies {
 
     //leakcanary 检测内存泄露
     implementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+
+
+    //腾讯TUIKit 支持 需要UI的IM导入
+    implementation 'com.tencent.imsdk:tuikit:5.1.50'
+    //implementation project(':tuikit')
+    //implementation(name: 'tuikit-5.1.50', ext: 'aar')
+
+
+    // 引入multidex库
+    implementation 'com.android.support:multidex:1.0.3'
 }
