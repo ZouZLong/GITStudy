@@ -40,8 +40,18 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        //跳转到备用界面
+        //启动一个前台服务
         public void onClick_ReceptionService() {
+            Intent intent1 = new Intent(MainActivity.this, ReceptionService.class);
+            if (Build.VERSION.SDK_INT >= 26) {
+                startForegroundService(intent1);
+            } else {
+                startService(intent1);
+            }
+        }
+
+        //跳转到备用界面
+        public void onClick_Spare() {
             Intent intent = new Intent(MainActivity.this, SpareActivity.class);
             startActivity(intent);
         }

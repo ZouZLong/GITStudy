@@ -27,6 +27,7 @@
     <string name="network_error">网络连接异常</string>
     <string name="network_timeout">网络请求超时，请重试</string>
     <string name="network_unavailable">网络连接不可用</string>
+    <string name="home_spare">跳转到备用页面</string>
     <!-- 公共字段 end-->
 
 </resources>
