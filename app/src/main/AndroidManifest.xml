@@ -32,7 +32,7 @@
         <activity android:name=".activity.SpareActivity" />
         <activity android:name=".im.IM_NewsActivity" />
         <activity android:name=".im.IM_MailListActivity" />
-
+        <activity android:name=".okhttp.socket.WebSocketActivity" />
 
 
         <!--由于Android8.0以后不能使用后台服务，
