@@ -62,6 +62,9 @@ dependencies {
     //okhttputils是张鸿洋(鸿神)封装的OKhttp3框架
     implementation 'com.zhy:okhttputils:2.6.2'
 
+    //websocket框架WsManager
+    implementation 'com.rabtman.wsmanager:wsmanager:1.0.2'
+
     //greendao 框架
     implementation 'org.greenrobot:greendao:3.2.2' // 添加库
 

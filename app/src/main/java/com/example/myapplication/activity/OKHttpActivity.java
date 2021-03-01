@@ -13,6 +13,7 @@ import com.example.myapplication.databinding.ActivityOkhttpBinding;
 import com.example.myapplication.okhttp.LoginLogic;
 import com.example.myapplication.utils.HttpUtil;
 import com.example.myapplication.utils.ToastUtil;
+import com.rabtman.wsmanager.WsManager;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -153,6 +154,13 @@ public class OKHttpActivity extends BaseActivity {
         } else {
             ToastUtil.showShortToast(MyApplication.getAppContext().getResources().getString(R.string.network_enable));
         }
+
+//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                .build();
+//        WsManager wsManager = new WsManager.Builder(this)
+//                .wsUrl("ws://localhost:8080/")  //ws连接地址
+//                .client(okHttpClient)
+//                .build();
     }
 
 
