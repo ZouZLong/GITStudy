@@ -13,11 +13,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
 
@@ -33,6 +29,16 @@
         <activity android:name=".im.IM_NewsActivity" />
         <activity android:name=".im.IM_MailListActivity" />
         <activity android:name=".okhttp.socket.WebSocketActivity" />
+        <activity android:name=".bluetooth.BluetoothActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".bluetooth.BluetoothActivity1">
+
+        </activity>
 
 
         <!--由于Android8.0以后不能使用后台服务，
@@ -47,6 +53,9 @@
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:persistent="true"
             android:priority="1000" />
+
+        <service
+            android:name="com.inuker.bluetooth.library.BluetoothService" />
     </application>
 
 
@@ -81,5 +90,17 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!--访问电话状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
 
 </manifest>

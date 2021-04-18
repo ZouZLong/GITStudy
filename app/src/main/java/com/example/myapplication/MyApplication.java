@@ -5,6 +5,7 @@ import android.content.Context;
 
 import androidx.multidex.MultiDex;
 
+import com.inuker.bluetooth.library.BluetoothClient;
 import com.tencent.imsdk.v2.V2TIMSDKConfig;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.config.CustomFaceConfig;
@@ -30,6 +31,7 @@ public class MyApplication extends Application {
      */
     private static Context mAppContext;
     public static final int SDKAPPID = 1400486822;
+    public static BluetoothClient bluetoothClient ;
 
     @Override
     public void onCreate() {
@@ -46,6 +48,8 @@ public class MyApplication extends Application {
         configs.setCustomFaceConfig(new CustomFaceConfig());
         configs.setGeneralConfig(new GeneralConfig());
         TUIKit.init(this, SDKAPPID, configs);
+
+        bluetoothClient = new BluetoothClient(this);
     }
 
     /**
@@ -55,6 +59,9 @@ public class MyApplication extends Application {
         return mAppContext;
     }
 
+    public static BluetoothClient getBluetoothClient() {
+        return bluetoothClient;
+    }
 
     /**
      * 配置OkhttpClient

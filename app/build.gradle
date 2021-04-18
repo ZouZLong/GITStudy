@@ -84,4 +84,8 @@ dependencies {
 
     // 引入multidex库
     implementation 'com.android.support:multidex:1.0.3'
+
+    api 'com.lwkandroid:RTPermissionLib:1.3.0' //权限请求和结果处理
+
+    compile 'com.inuker.bluetooth:library:1.4.0'
 }
