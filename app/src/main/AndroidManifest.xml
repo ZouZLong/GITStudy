@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -30,15 +33,21 @@
         <activity android:name=".im.IM_MailListActivity" />
         <activity android:name=".okhttp.socket.WebSocketActivity" />
         <activity android:name=".bluetooth.BluetoothActivity">
+
+        </activity>
+        <activity android:name=".bluetooth.BluetoothActivity1">
+
+        </activity>
+
+        <activity android:name=".activity.GlideGifActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".bluetooth.BluetoothActivity1">
 
-        </activity>
+
 
 
         <!--由于Android8.0以后不能使用后台服务，
