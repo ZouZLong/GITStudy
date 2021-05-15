@@ -3,9 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.myapplication">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -15,10 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
 
-        </activity>
-
+        <activity android:name=".MainActivity" />
 
         <activity android:name=".activity.OKHttpActivity" />
         <activity android:name=".activity.MemoryLeakActivity" />
@@ -33,21 +28,25 @@
         <activity android:name=".im.IM_MailListActivity" />
         <activity android:name=".okhttp.socket.WebSocketActivity" />
         <activity android:name=".bluetooth.BluetoothActivity">
-
+            <!--蓝牙操作 -->
         </activity>
         <activity android:name=".bluetooth.BluetoothActivity1">
-
+            <!--蓝牙操作 -->
         </activity>
-
         <activity android:name=".activity.GlideGifActivity">
+            <!--GIF操作 -->
+        </activity>
+        <activity android:name=".activity.LocationActivity">
+            <!--高德定位定理围栏 -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="839da1e018d0574bb0ccb3b9cb0ec261" />
 
 
         <!--由于Android8.0以后不能使用后台服务，
@@ -63,53 +62,63 @@
             android:persistent="true"
             android:priority="1000" />
 
-        <service
-            android:name="com.inuker.bluetooth.library.BluetoothService" />
+        <service android:name="com.inuker.bluetooth.library.BluetoothService" />
+
+        <!--高德定位服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
     </application>
-
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- //重要2 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-    <!-- ======================授权访问网络（OkHttpUtil）========================== -->
-    <!-- 允许程序打开网络套接字 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!-- 允许程序访问有关GSM网络信息 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!-- 允许程序访问Wi-Fi网络状态信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!-- 允许一个程序访问精良位置(如GPS)  -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!-- 访问电话状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!-- 允许程序读外部存储，如SD卡上读文件 -->
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <!--======================授权访问网络（HttpUtil）========================== -->
-    <!--允许程序打开网络套接字 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--允许程序访问有关GSM网络信息 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--允许程序访问Wi-Fi网络状态信息 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许一个程序访问精良位置(如GPS)  -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--访问电话状态 -->
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
-
-
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- //重要2 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- ======================授权访问网络（OkHttpUtil）========================== -->
+    <!-- 允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 允许程序访问有关GSM网络信息 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 允许一个程序访问精良位置(如GPS)  -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 访问电话状态 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 允许程序写入外部存储，如SD卡上写文件 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 允许程序读外部存储，如SD卡上读文件 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <!--======================授权访问网络（HttpUtil）========================== -->
+    <!--允许程序打开网络套接字 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!--允许程序访问有关GSM网络信息 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!--允许程序访问Wi-Fi网络状态信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--允许一个程序访问精良位置(如GPS)  -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!--访问电话状态 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- ======================高德定位========================== -->
+    <!--如果设置了target >= 28 如果需要启动后台定位则必须声明这个权限-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!--如果您的应用需要后台定位权限，且有可能运行在Android Q设备上,并且设置了target>28，必须增加这个权限声明-->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 
 </manifest>
