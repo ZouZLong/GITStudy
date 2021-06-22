@@ -17,7 +17,6 @@ public class MyMessageReceiver extends MessageReceiver {
         // TODO 处理推送通知
         Log.e("MyMessageReceiver", "Receive notification, title: " + title + ", summary: " + summary + ", extraMap: " + extraMap);
     }
-
     @Override
     public void onMessage(Context context, CPushMessage cPushMessage) {
         Log.e("MyMessageReceiver", "onMessage, messageId: " + cPushMessage.getMessageId() + ", title: " + cPushMessage.getTitle() + ", content:" + cPushMessage.getContent());
