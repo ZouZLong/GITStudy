@@ -42,4 +42,5 @@ public class MyMessageReceiver extends MessageReceiver {
     protected void onNotificationRemoved(Context context, String messageId) {
         Log.e("MyMessageReceiver", "onNotificationRemoved");
     }
+
 }
