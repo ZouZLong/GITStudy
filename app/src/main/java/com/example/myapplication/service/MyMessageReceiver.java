@@ -43,4 +43,5 @@ public class MyMessageReceiver extends MessageReceiver {
         Log.e("MyMessageReceiver", "onNotificationRemoved");
     }
 
+
 }
