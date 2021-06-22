@@ -2,9 +2,13 @@ package com.example.myapplication;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import androidx.multidex.MultiDex;
 
+import com.alibaba.sdk.android.push.CloudPushService;
+import com.alibaba.sdk.android.push.CommonCallback;
+import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
 import com.inuker.bluetooth.library.BluetoothClient;
 import com.tencent.imsdk.v2.V2TIMSDKConfig;
 import com.tencent.qcloud.tim.uikit.TUIKit;
@@ -31,11 +35,12 @@ public class MyApplication extends Application {
      */
     private static Context mAppContext;
     public static final int SDKAPPID = 1400486822;
-    public static BluetoothClient bluetoothClient ;
+    public static BluetoothClient bluetoothClient;
 
     @Override
     public void onCreate() {
         super.onCreate();
+        initCloudChannel(this);
         mAppContext = getApplicationContext();
         // 初始化MultiDex
         MultiDex.install(this);
@@ -92,4 +97,25 @@ public class MyApplication extends Application {
         OkHttpUtils.initClient(okHttpClient);
     }
 
+    /**
+     * 初始化云推送通道
+     *
+     * @param applicationContext
+     */
+    private void initCloudChannel(Context applicationContext) {
+        PushServiceFactory.init(applicationContext);
+        CloudPushService pushService = PushServiceFactory.getCloudPushService();
+        pushService.register(applicationContext, new CommonCallback() {
+            @Override
+            public void onSuccess(String response) {
+                Log.e("123", "init cloudchannel success");
+                Log.e("123", "getDeviceId:" + pushService.getDeviceId());
+            }
+
+            @Override
+            public void onFailed(String errorCode, String errorMessage) {
+                Log.e("123", "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
+            }
+        });
+    }
 }

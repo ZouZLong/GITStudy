@@ -89,4 +89,6 @@ dependencies {
     api 'pl.droidsonroids.gif:android-gif-drawable:1.2.15'
 
     api 'com.amap.api:location:latest.integration' //高德定位
+
+    api 'com.aliyun.ams:alicloud-android-push:3.4.0' //阿里云推送
 }
