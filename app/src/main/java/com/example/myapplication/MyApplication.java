@@ -3,13 +3,18 @@ package com.example.myapplication;
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.multidex.MultiDex;
 
 import com.alibaba.sdk.android.push.CloudPushService;
 import com.alibaba.sdk.android.push.CommonCallback;
 import com.alibaba.sdk.android.push.noonesdk.PushServiceFactory;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.inuker.bluetooth.library.BluetoothClient;
+import com.lqr.emoji.IImageLoader;
+import com.lqr.emoji.LQREmotionKit;
 import com.tencent.imsdk.v2.V2TIMSDKConfig;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.config.CustomFaceConfig;
@@ -55,6 +60,14 @@ public class MyApplication extends Application {
         TUIKit.init(this, SDKAPPID, configs);
 
         bluetoothClient = new BluetoothClient(this);
+
+        //表情初始化
+        LQREmotionKit.init(this, new IImageLoader() {
+            @Override
+            public void displayImage(Context context, String path, ImageView imageView) {
+                Glide.with(context).load(path).centerCrop().diskCacheStrategy(DiskCacheStrategy.ALL).into(imageView);
+            }
+        });
     }
 
     /**

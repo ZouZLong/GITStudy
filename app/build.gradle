@@ -91,4 +91,7 @@ dependencies {
     api 'com.amap.api:location:latest.integration' //高德定位
 
     api 'com.aliyun.ams:alicloud-android-push:3.4.0' //阿里云推送
+
+    api 'com.lqr.emoji:library:1.0.2' //标签框架库
+
 }
