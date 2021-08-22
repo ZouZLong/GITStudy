@@ -41,11 +41,17 @@
         </activity>
         <activity android:name=".activity.EmotionKitActivity">
             <!--表情页面 -->
+
+        </activity>
+
+        <activity android:name=".activity.DrawActivity">
+            <!--绘画自定义View -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
 
         <meta-data
