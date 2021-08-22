@@ -27,7 +27,6 @@ public class DrawActivity extends AppCompatActivity {
         Btn = findViewById(R.id.Btn);
         myView = findViewById(R.id.myView);
 
-
         Btn.setOnClickListener(v -> {
             for (int i = 0; i < 100; i++) {
                 myView.addData((int) (1 + Math.random() * (150 - 1 + 1)));
