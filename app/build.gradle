@@ -94,4 +94,6 @@ dependencies {
 
     api 'com.lqr.emoji:library:1.0.2' //标签框架库
 
+    api 'se.emilsjolander:android-flipview:1.1.0' //仿日历的翻页效果
+
 }

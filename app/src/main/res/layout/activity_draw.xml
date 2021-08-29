@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flipview="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,14 +12,59 @@
         android:text="点击生成一个数据" />
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center">
+
+        <se.emilsjolander.flipview.FlipView
+            android:elevation="5dp"
+            android:background="#f7f7f7"
+            android:id="@+id/flipView01"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            flipview:orientation="vertical"
+            flipview:overFlipMode="glow" />
+
+        <se.emilsjolander.flipview.FlipView
+            android:id="@+id/flipView02"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            flipview:orientation="vertical"
+            flipview:overFlipMode="glow" />
+
+        <se.emilsjolander.flipview.FlipView
+            android:id="@+id/flipView03"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            flipview:orientation="vertical"
+            flipview:overFlipMode="glow" />
+
+        <se.emilsjolander.flipview.FlipView
+            android:id="@+id/flipView04"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            flipview:orientation="vertical"
+            flipview:overFlipMode="glow" />
+
+    </LinearLayout>
+
     <com.example.myapplication.view.MyView
         android:id="@+id/myView"
         android:layout_width="match_parent"
         android:layout_height="200dp" />
 
-
-    <com.example.myapplication.view.BodyWeightScaleTableView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"/>
 
 </LinearLayout>

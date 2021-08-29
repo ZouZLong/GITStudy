@@ -43,7 +43,10 @@
             <!--表情页面 -->
 
         </activity>
+        <activity android:name=".activity.CoordinatorActivity">
+            <!--测试滑动的控件CoordinatorLayout+AppBarLayout -->
 
+        </activity>
         <activity android:name=".activity.DrawActivity">
             <!--绘画自定义View -->
             <intent-filter>
